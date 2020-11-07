@@ -20,6 +20,8 @@ $router->get('/', function () use ($router) {
 });
 
 $router->post('/users/register', 'UsersController@store');
+$router->get('/posts', 'PostsController@index');
+$router->get('/posts/{id}', 'PostsController@find');
 
 $router->group(['middleware' => 'JwtAccess'], function () use ($router) {
 
@@ -30,7 +32,6 @@ $router->group(['middleware' => 'JwtAccess'], function () use ($router) {
     });
 
     $router->group(['prefix' => '/posts'], function () use ($router) {
-        $router->get('/', 'PostsController@index');
         $router->post('/', 'PostsController@store');
     });
 });

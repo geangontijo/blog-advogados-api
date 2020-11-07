@@ -72,9 +72,9 @@ $app->configure('app');
 |
 */
 
-// $app->middleware([
-//     App\Http\Middleware\JwtAccess::class
-// ]);
+ $app->middleware([
+     \App\Http\Middleware\CorsMiddleware::class
+ ]);
 
  $app->routeMiddleware([
      'JwtAccess' => \App\Http\Middleware\JwtAccess::class,
